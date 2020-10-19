@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.3.4.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <groupId>com.company</groupId>
+    <artifactId>employ-location</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>employ-location</name>
+    <description>Demo project for Spring Boot</description>
+
+    <properties>
+        <java.version>11</java.version>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <!-- 子模块 start -->
+        <com.kx.auction.common.version>1.0</com.kx.auction.common.version>
+        <com.kx.auction.base.entity.version>1.0</com.kx.auction.base.entity.version>
+        <com.kx.auction.thirdparty.version>1.0</com.kx.auction.thirdparty.version>
+        <!-- 子模块 end -->
+
+        <!-- spring start -->
+        <spring-social-web.version>1.1.6.RELEASE</spring-social-web.version>
+        <!-- spring end -->
+
+        <!-- 工具类 start-->
+        <javax.servlet-api.version>4.0.1</javax.servlet-api.version>
+        <commons.odec.version>1.14</commons.odec.version>
+        <org.apache.commons.lang3.version>3.9</org.apache.commons.lang3.version>
+        <commons.io.version>2.4</commons.io.version>
+        <commons.collections.version>3.2.1</commons.collections.version>
+        <commons-pool2.version>2.6.2</commons-pool2.version>
+        <com.alibaba.fastjson.version>1.2.68</com.alibaba.fastjson.version>
+        <org.apache.httpcomponents.httpclient.version>4.5.12</org.apache.httpcomponents.httpclient.version>
+        <cn.hutool.hutool.all.version>5.2.3</cn.hutool.hutool.all.version>
+        <log4j.version>1.2.17</log4j.version>
+        <com.github.whvcse.easy-captcha.version>1.6.2</com.github.whvcse.easy-captcha.version>
+        <com.github.pagehelper.version>1.3.0</com.github.pagehelper.version>
+        <com.github.javen205.IJPay.version>2.7.0</com.github.javen205.IJPay.version>
+        <!-- 工具类 end-->
+
+        <!-- mysql start -->
+        <mysql.connector.java.version>8.0.19</mysql.connector.java.version>
+        <com.alibaba.druid.spring.boot.starter.version>1.1.23</com.alibaba.druid.spring.boot.starter.version>
+        <!-- mysql end -->
+
+        <!-- mybatis start -->
+        <org.mybatis.spring.boot.version>2.1.3</org.mybatis.spring.boot.version>
+        <!-- mybatis end -->
+
+        <!-- jwt start -->
+        <io.jsonwebtoken.jjwt.version>0.9.1</io.jsonwebtoken.jjwt.version>
+        <javax.xml.bind.jaxb-api.version>2.3.1</javax.xml.bind.jaxb-api.version>
+        <com.sun.xml.bind.jaxb-impl.version>2.3.0</com.sun.xml.bind.jaxb-impl.version>
+        <com.sun.xml.bind.jaxb-core.version>2.3.0</com.sun.xml.bind.jaxb-core.version>
+        <javax.activation.activation.version>1.1.1</javax.activation.activation.version>
+        <!-- jwt end  -->
+
+        <!-- 三方 start -->
+        <com.aliyun.aliyun-java-sdk-core.version>4.5.1</com.aliyun.aliyun-java-sdk-core.version>
+        <com.qiniu.qiniu-java-sdk.version>7.2.29</com.qiniu.qiniu-java-sdk.version>
+        <!-- 三方 end -->
+
+        <!-- dubbo start -->
+        <org.apache.dubbo.dubbo-spring-boot-starter.version>2.7.8</org.apache.dubbo.dubbo-spring-boot-starter.version>
+        <!-- dubbo end -->
+
+        <!-- plumelog start -->
+        <com.plumelog.plumelog-logback.version>3.1.3</com.plumelog.plumelog-logback.version>
+        <!-- plumelog end -->
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- 子模块 start -->
+            <dependency>
+                <groupId>com.kx</groupId>
+                <artifactId>auction-core-common</artifactId>
+                <version>${com.kx.auction.common.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.kx</groupId>
+                <artifactId>auction-core-base-entity</artifactId>
+                <version>${com.kx.auction.base.entity.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.kx</groupId>
+                <artifactId>auction-core-thirdparty</artifactId>
+                <version>${com.kx.auction.thirdparty.version}</version>
+            </dependency>
+            <!-- 子模块 end -->
+
+            <!-- spring start -->
+            <dependency>
+                <groupId>org.springframework.social</groupId>
+                <artifactId>spring-social-web</artifactId>
+                <version>${spring-social-web.version}</version>
+            </dependency>
+            <!-- spring end -->
+
+            <!-- 工具类 start-->
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>javax.servlet-api</artifactId>
+                <version>${javax.servlet-api.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-codec</groupId>
+                <artifactId>commons-codec</artifactId>
+                <version>${commons.odec.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${org.apache.commons.lang3.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${commons.io.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-collections</groupId>
+                <artifactId>commons-collections</artifactId>
+                <version>${commons.collections.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-pool2</artifactId>
+                <version>${commons-pool2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${com.alibaba.fastjson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>${org.apache.httpcomponents.httpclient.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${cn.hutool.hutool.all.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.whvcse</groupId>
+                <artifactId>easy-captcha</artifactId>
+                <version>${com.github.whvcse.easy-captcha.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper-spring-boot-starter</artifactId>
+                <version>${com.github.pagehelper.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.javen205</groupId>
+                <artifactId>IJPay-WxPay</artifactId>
+                <version>${com.github.javen205.IJPay.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.javen205</groupId>
+                <artifactId>IJPay-AliPay</artifactId>
+                <version>${com.github.javen205.IJPay.version}</version>
+            </dependency>
+            <!-- 工具类 end-->
+
+            <!-- mysql start -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.connector.java.version}</version>
+            </dependency>
+            <!-- mysql end -->
+
+            <!-- druid start -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${com.alibaba.druid.spring.boot.starter.version}</version>
+            </dependency>
+            <!-- druid end -->
+
+            <!-- mybatis start -->
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${org.mybatis.spring.boot.version}</version>
+            </dependency>
+            <!-- mybatis end -->
+
+            <!-- jwt start -->
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt</artifactId>
+                <version>${io.jsonwebtoken.jjwt.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.xml.bind</groupId>
+                <artifactId>jaxb-api</artifactId>
+                <version>${javax.xml.bind.jaxb-api.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.sun.xml.bind</groupId>
+                <artifactId>jaxb-impl</artifactId>
+                <version>${com.sun.xml.bind.jaxb-impl.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.sun.xml.bind</groupId>
+                <artifactId>jaxb-core</artifactId>
+                <version>${com.sun.xml.bind.jaxb-core.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.activation</groupId>
+                <artifactId>activation</artifactId>
+                <version>${javax.activation.activation.version}</version>
+            </dependency>
+            <!-- jwt end -->
+
+            <!-- 三方 start -->
+            <dependency>
+                <groupId>com.aliyun</groupId>
+                <artifactId>aliyun-java-sdk-core</artifactId>
+                <version>${com.aliyun.aliyun-java-sdk-core.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.qiniu</groupId>
+                <artifactId>qiniu-java-sdk</artifactId>
+                <version>${com.qiniu.qiniu-java-sdk.version}</version>
+            </dependency>
+            <!-- 三方 end -->
+
+            <!-- dubbo start -->
+            <dependency>
+                <groupId>org.apache.dubbo</groupId>
+                <artifactId>dubbo-spring-boot-starter</artifactId>
+                <version>${org.apache.dubbo.dubbo-spring-boot-starter.version}</version>
+            </dependency>
+            <!-- dubbo end -->
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <!-- spring start -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <!-- spring end -->
+
+        <!-- lombok start -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+        <!-- lombok end -->
+
+        <!-- log4j start -->
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+        <!-- log4j end -->
+    </dependencies>
+</project>
